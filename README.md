@@ -19,21 +19,17 @@ A lightweight Android QR code scanner with a clean, monotone design.
 
 ## Play Protect blocked the install?
 
-The first APK builds were signed with a **debug certificate**, which Play Protect often flags as unsafe.
+Older APK builds were signed with a **debug certificate**, which Play Protect often flags.
 
-**Fix (one-time setup):**
+Current builds use a **release keystore** automatically in CI (cached across runs). For your own signing key (recommended before Play Store), optionally add repository secrets — see below.
 
-1. Go to [Actions → Create release keystore](https://github.com/zapk13/qr-code-scanner/actions/workflows/create-keystore.yml)
-2. Click **Run workflow**, choose a strong password, and run it
-3. Download the `release-keystore` artifact
-4. Add these [repository secrets](https://github.com/zapk13/qr-code-scanner/settings/secrets/actions):
-   - `ANDROID_KEYSTORE_BASE64` — contents of `release.keystore.base64`
-   - `ANDROID_KEYSTORE_PASSWORD` — your keystore password
-   - `ANDROID_KEY_ALIAS` — `qrscanner` (or the alias you chose)
-   - `ANDROID_KEY_PASSWORD` — your key password
-5. Run **Build APK** again and install the new artifact (v1.0.1+)
+**If Play Protect still warns:** sideloaded apps from unknown developers may show “App not commonly installed.” Tap **More details** → **Install anyway**.
 
-**If Play Protect still warns:** sideloaded apps from unknown developers may show “App not commonly installed.” Tap **More details** → **Install anyway**. Publishing to Google Play removes this over time.
+### Optional: use your own signing key
+
+1. Run [Create release keystore](https://github.com/zapk13/qr-code-scanner/actions/workflows/create-keystore.yml) or `bash scripts/create-release-keystore.sh`
+2. Add repository secrets: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`
+3. Re-run **Build APK**
 
 ## Build locally
 

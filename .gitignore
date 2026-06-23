@@ -11,3 +11,6 @@
 *.ap_
 *.aab
 output.json
+*.keystore
+keystore.properties
+release.keystore.base64

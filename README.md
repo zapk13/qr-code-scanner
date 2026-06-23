@@ -13,9 +13,9 @@ A lightweight Android QR code scanner with a clean, monotone design.
 
 ## Download APK
 
-1. Push this repo to [GitHub](https://github.com/zapk13/qr-code-scanner)
-2. Go to **Actions** → **Build APK** → run the workflow (or wait for a push to `main`)
-3. Download the `qr-scanner-release` artifact from the completed run
+1. Go to [Actions](https://github.com/zapk13/qr-code-scanner/actions) → **Build APK**
+2. Open the latest completed run (or trigger **Run workflow** manually)
+3. Download the `qr-scanner-release` artifact from the run
 
 ## Build locally
 
